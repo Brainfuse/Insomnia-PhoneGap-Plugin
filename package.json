@@ -1,39 +1,58 @@
 {
-  "name": "cordova-plugin-insomnia",
-  "version": "4.3.1",
-  "description": "Prevent the screen of the mobile device from falling asleep.",
+  "_from": "git+https://github.com/tombolaltd/cordova-plugin-insomnia.git",
+  "_id": "cordova-plugin-insomnia@1.0.5",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/cordova-plugin-insomnia",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/tombolaltd/cordova-plugin-insomnia.git",
+    "rawSpec": "https://github.com/tombolaltd/cordova-plugin-insomnia.git",
+    "saveSpec": "git+https://github.com/tombolaltd/cordova-plugin-insomnia.git",
+    "fetchSpec": "https://github.com/tombolaltd/cordova-plugin-insomnia.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/tombolaltd/cordova-plugin-insomnia.git#d533c78310384ec71fc67a1a9ecfbf54b2005177",
+  "_spec": "https://github.com/tombolaltd/cordova-plugin-insomnia.git",
+  "_where": "C:\\Users\\13472\\vscode-workspace\\cordova-wrapper",
+  "author": {
+    "name": "tombola"
+  },
+  "bugs": {
+    "url": "https://github.com/tombolaltd/cordova-plugin-insomnia/issues"
+  },
+  "bundleDependencies": false,
   "cordova": {
     "id": "cordova-plugin-insomnia",
     "platforms": [
       "ios",
-      "wp8",
-      "windows",
-      "android",
-      "firefoxos"
+      "android"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git"
-  },
-  "keywords": [
-    "ecosystem:cordova",
-    "cordova-ios",
-    "cordova-wp8",
-    "cordova-windows",
-    "cordova-android",
-    "cordova-firefoxos"
-  ],
+  "deprecated": false,
+  "description": "Prevent the screen of the mobile device from falling asleep.",
   "engines": [
     {
       "name": "cordova",
       "version": ">=3.0.0"
     }
   ],
-  "author": "Eddy Verbruggen <eddyverbruggen@gmail.com> (https://github.com/EddyVerbruggen)",
+  "homepage": "https://github.com/tombolaltd/cordova-plugin-insomnia#readme",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin/issues"
+  "name": "cordova-plugin-insomnia",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tombolaltd/cordova-plugin-insomnia.git"
   },
-  "homepage": "https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin#readme"
+  "version": "1.0.5"
 }

@@ -1,17 +1,12 @@
-# Insomnia-PhoneGap-Plugin
+# cordova-plugin-insomnia
 
-by [Eddy Verbruggen](http://www.x-services.nl)
+This is a re-working  of [Eddy Verbruggen's](http://www.x-services.nl) insomnia plugin, we have had issues when upgrading various parts of the cordova stack getting the plugin installed.
 
-1. [Description](https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin#1-description)
-2. [Installation](https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin#2-installation)
-	2. [Automatically (CLI / Plugman)](https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin#automatically-cli--plugman)
-	2. [Manually](https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin#manually)
-	2. [PhoneGap Build](https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin#phonegap-build)
-3. [Usage](https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin#3-usage)
-4. [Credits](https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin#4-credits)
-5. [License](https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin#5-license)
-
-This is for PhoneGap 3.x, [here is the 2.x version](https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin/tree/phonegap-2.x)
+1. [Description](https://github.com/tombolaltd/cordova-plugin-insomnia#1-description)
+2. [Installation](https://github.com/tombolaltd/cordova-plugin-insomnia#2-installation)
+3. [Usage](https://github.com/tombolaltd/cordova-plugin-insomnia#3-usage)
+4. [Credits](https://github.com/tombolaltd/cordova-plugin-insomnia#4-credits)
+5. [License](https://github.com/tombolaltd/cordova-plugin-insomnia#5-license)
 
 ## 1. Description
 
@@ -24,84 +19,18 @@ Prevent the screen of the mobile device from falling asleep.
 * Works on Windows and WP8.
 
 ## 2. Installation
-
-### Automatically (CLI / Plugman)
-Insomnia is compatible with [Cordova Plugman](https://github.com/apache/cordova-plugman) and ready for the [PhoneGap 2.9.0 CLI](http://docs.phonegap.com/en/2.9.0/guide_cli_index.md.html#The%20Command-line%20Interface_add_features), here's how it works with the CLI:
-
 ```
-$ phonegap local plugin add https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git
-```
-or
-```
-$ cordova plugin add https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git
+$ cordova plugin add https://github.com/tombolaltd/cordova-plugin-insomnia.git
 ```
 run this command afterwards:
 ```
 $ cordova prepare
 ```
 
-The javascript bridge is brought in automatically, so no need to reference Insomnia.js from your html.
-
-You can also get this plugin [from NPM](https://www.npmjs.com/package/cordova-plugin-insomnia).
-
-### Manually
-
-1\. Add the following xml to your `config.xml` in the root directory of your `www` folder:
-```xml
-<!-- for iOS -->
-<feature name="Insomnia">
-  <param name="ios-package" value="Insomnia" />
-</feature>
-```
-
-```xml
-<!-- for Android -->
-<feature name="Insomnia">
-  <param name="android-package" value="nl.xservices.plugins.Insomnia" />
-</feature>
-```
-
-```xml
-<!-- for wp8 -->
-<feature name="Insomnia">
-  <param name="wp-package" value="Insomnia" />
-</feature>
-```
-
-2\. Grab a copy of Insomnia.js, add it to your project and reference it in `index.html`:
-```html
-<script type="text/javascript" src="js/Insomnia.js"></script>
-```
-
-3\. Download the source files for iOS and/or Android and copy them to your project.
-
-iOS: Copy `Insomnia.h` and `Insomnia.h` to `platforms/ios/<ProjectName>/Plugins`
-
-Android: Copy `Insomnia.java` to `platforms/android/src/nl/xservices/plugins` (create the folders)
-
-wp8: Copy `Insomnia.cs` to `platforms/wp8/Plugins/nl.x-services.plugins.insomnia` (create the folders)
-
-### PhoneGap Build
-
-Insomnia works with PhoneGap build too, look for Insomnia here: https://build.phonegap.com/plugins/
-Just add the following xml to your `config.xml` to always use the latest version of this plugin:
-```xml
-<plugin name="cordova-plugin-insomnia" />
-```
-or to use this exact version:
-```xml
-<plugin name="cordova-plugin-insomnia" version="4.1.0" source="npm" />
-```
-
-The plugin's  javascript file is brought in automatically. Make sure though you include a reference to cordova.js in your index.html's head:
-```html
-<script type="text/javascript" src="cordova.js"></script>
-```
-
 ## 3. Usage
 ```html
-<button onclick="insomnia.keepAwake()">keep awake</button>
-<button onclick="insomnia.allowSleepAgain()">allow sleep again</button>
+<button onclick="window.plugins.insomnia.keepAwake()">keep awake</button>
+<button onclick="window.plugins.insomnia.allowSleepAgain()">allow sleep again</button>
 ```
 An optional successCallback (first argument) will be triggered if the functions succeed. Even calling `keepAwake` twice will fire the successCallback, because the app will respond as expected (being kept awake).
 
@@ -117,13 +46,14 @@ So to make sure your app honors `keepAwake` you have to re-run that method after
 
 ## 4. CREDITS ##
 
+
 This plugin was enhanced for Plugman / PhoneGap Build by [Eddy Verbruggen](http://www.x-services.nl).
 
-The Android code was entirely created by the author.
+All executable code is Eddie Verbruggen's except for the native iOS code which tombola has converted to swift to help with maintainablility within our team.
+We also changed Eddie Verbruggens's package.json and plugin.xml to fit our repo - this also fixed our specific problem but the equivalent changes are probably not something he'd want to pull into his repo. Additionally, we have dropped support for OSs we do not deploy to.
 
 The iOS code was heavily inspired by [Wolfgang Koller](https://github.com/simplec-dev/powermanagement).
 
-Many thanks to [Jesse MacFadyen](https://github.com/purplecabbage) for implementing the wp8 and windows versions!
 
 ## 5. License
 

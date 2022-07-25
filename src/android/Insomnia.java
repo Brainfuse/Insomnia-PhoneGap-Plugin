@@ -1,4 +1,4 @@
-package nl.xservices.plugins;
+package tombola.plugins;
 
 import android.view.WindowManager;
 import org.apache.cordova.CallbackContext;
